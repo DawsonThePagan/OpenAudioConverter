@@ -15,4 +15,4 @@ MIT License. Check license.txt for more details.
 
 ## References  
 WikiCommons[1] = https://commons.wikimedia.org/wiki/File:Tabler-icons_drag-drop.svg  
-WikiCommons[2] = https://commons.wikimedia.org/wiki/File:Loading_icon.gif
+WikiCommons[2] = https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif
