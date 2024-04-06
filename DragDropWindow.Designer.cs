@@ -85,10 +85,6 @@
 			// audioOutSelect
 			// 
 			this.audioOutSelect.FormattingEnabled = true;
-			this.audioOutSelect.Items.AddRange(new object[] {
-            "MP3",
-            "OGG",
-            "WAV"});
 			this.audioOutSelect.Location = new System.Drawing.Point(507, 351);
 			this.audioOutSelect.Name = "audioOutSelect";
 			this.audioOutSelect.Size = new System.Drawing.Size(126, 23);
@@ -130,6 +126,7 @@
 			this.Controls.Add(this.DragDropText);
 			this.Name = "StartWindow";
 			this.Text = "OAC - Drag and Drop";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StartWindow_FormClosed);
 			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.StartWindow_DragDrop);
 			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.StartWindow_DragEnter);
 			((System.ComponentModel.ISupportInitialize)(this.DragDropImage)).EndInit();

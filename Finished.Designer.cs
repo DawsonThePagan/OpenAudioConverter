@@ -88,6 +88,7 @@
 			this.Controls.Add(this.FinishedText);
 			this.Name = "Finished";
 			this.Text = "Finished";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Finished_FormClosed);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

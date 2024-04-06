@@ -1,5 +1,6 @@
 using FFMpegCore;
 using System.Collections;
+using System.Windows.Forms.VisualStyles;
 
 namespace OpenAudioConverter
 {
@@ -12,8 +13,9 @@ namespace OpenAudioConverter
 		// File list holder
 		public static ArrayList filesList = new();
 		public static string? outputFormat;
-
+		// Constants
 		public const string VERSION = "1.0";
+		public static string[] allowedExtension = { "WAV", "OGG", "MP3", "FLAC", "AIFF", "WMA", "AAC" };
 
 		// Output info holders
 		public static ArrayList failedFiles = new();
@@ -28,16 +30,26 @@ namespace OpenAudioConverter
 			Application.Run(dragDropWin);
 		}
 
+		/// <summary>
+		/// Converts a single file
+		/// </summary>
+		/// <param name="filePath">Path to file</param>
+		/// <param name="output">Output format</param>
 		static void startConv(string filePath, string output)
 		{
 			string outputPath = filePath.Substring(0, filePath.LastIndexOf('.')) + "." +output;
 			Console.WriteLine(filePath + "  " + outputPath);
-			if (!FFMpegArguments.FromFileInput(filePath).OutputToFile(outputPath).ProcessSynchronously())
+			if (!FFMpegArguments.FromFileInput(filePath).OutputToFile(outputPath).ProcessSynchronously(false))
 			{
 				failedFiles.Add(filePath.Substring(filePath.LastIndexOf("\\")));
 			}
 		}
 
+		/// <summary>
+		/// Inject the list and pass to file convert
+		/// </summary>
+		/// <param name="files">Files to convert</param>
+		/// <param name="output">Output format</param>
 		async static void handleList(ArrayList files, string output)
 		{
 			foreach (string file in files)
@@ -47,7 +59,11 @@ namespace OpenAudioConverter
 			finishProcess();
 		}
 
-#pragma warning disable CS8602 // It will complain about dragDropWin been possible null here otherwise
+#pragma warning disable CS8602 // Stop warnings about null windows, they are not null
+
+		/// <summary>
+		/// Start processing the files
+		/// </summary>
 		public static void startProcessing()
 		{
 			// Make sure everything has been selected correctly
@@ -71,12 +87,19 @@ namespace OpenAudioConverter
 			handleList(filesList, outputFormat);
 		}
 
+		/// <summary>
+		/// Finished processing the files
+		/// </summary>
 		public static void finishProcess()
 		{
 			processingWin.hideSelf();
 			finishedWin.Show();
+			finishedWin.updateFails();
 		}
 
+		/// <summary>
+		/// Restart the flow
+		/// </summary>
 		public static void restart()
 		{
 			dragDropWin.Show();
@@ -84,6 +107,7 @@ namespace OpenAudioConverter
 			outputFormat = null;
 			failedFiles.Clear();
 			dragDropWin.reset();
+			finishedWin.reset();
 		}
 #pragma warning restore CS8602
 	}

@@ -62,6 +62,7 @@
 			this.Controls.Add(this.ProcessingText);
 			this.Name = "Processing";
 			this.Text = "Processing";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Processing_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

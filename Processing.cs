@@ -12,5 +12,10 @@
 		{
 			this.Hide();
 		}
+
+		private void Processing_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }
