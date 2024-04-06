@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartWindow));
 			this.DragDropText = new System.Windows.Forms.Label();
 			this.DragDropImage = new System.Windows.Forms.PictureBox();
 			this.StartButton = new System.Windows.Forms.Button();
@@ -124,6 +125,7 @@
 			this.Controls.Add(this.StartButton);
 			this.Controls.Add(this.DragDropImage);
 			this.Controls.Add(this.DragDropText);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "StartWindow";
 			this.Text = "OAC - Drag and Drop";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StartWindow_FormClosed);

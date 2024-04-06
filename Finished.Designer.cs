@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Finished));
 			this.FinishedText = new System.Windows.Forms.Label();
 			this.FailedBox = new System.Windows.Forms.RichTextBox();
 			this.closeButton = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
 			this.Controls.Add(this.closeButton);
 			this.Controls.Add(this.FailedBox);
 			this.Controls.Add(this.FinishedText);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Finished";
 			this.Text = "Finished";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Finished_FormClosed);
