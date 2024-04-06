@@ -5,6 +5,7 @@
 		public Finished()
 		{
 			InitializeComponent();
+			this.Text = this.Text + " - V" + Program.VERSION;
 			foreach (string file in Program.failedFiles)
 			{
 				FailedBox.Text = FailedBox.Text + file + "\n";

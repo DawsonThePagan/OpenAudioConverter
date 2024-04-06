@@ -5,6 +5,7 @@ namespace OpenAudioConverter
 		public StartWindow()
 		{
 			InitializeComponent();
+			this.Text = this.Text + " - V" + Program.VERSION;
 		}
 
 		private void StartButton_Click(object sender, EventArgs e)

@@ -13,6 +13,8 @@ namespace OpenAudioConverter
 		public static ArrayList filesList = new();
 		public static string? outputFormat;
 
+		public const string VERSION = "1.0";
+
 		// Output info holders
 		public static ArrayList failedFiles = new();
 
